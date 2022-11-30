@@ -93,4 +93,24 @@ class StudentDBTest {
                 studentDB
         );
     }
+    @Test
+    void iFail_whenCalled_throwsArithmeticExceptionWithAsdf() {
+//        Assertions.assertThrows(ArithmeticException.class, () -> {
+//            Main.iFail()
+//        });
+
+        try {
+            StudentDB studentDB = new StudentDB(new Student[]{
+                    new Student("1", "Bob"),
+                    new Student("2", "Tom"),
+                    new Student("3", "Jane")
+            });
+            studentDB.findById("15");
+            Assertions.fail();
+        } catch (IllegalArgumentException e) {
+            Assertions.assertTrue(true);
+        }
+    }
+
+
 }

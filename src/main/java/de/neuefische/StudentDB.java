@@ -8,7 +8,9 @@ import lombok.Data;
 public class StudentDB {
     private Student[] students;
 
-    public Student randomStudent () {
+
+
+    public Student randomStudent() {
         if (students.length < 1) {
             return null;
         }
@@ -41,5 +43,17 @@ public class StudentDB {
         }
 
         students = newStudents;
+    }
+// Wiederholen
+    public Student findById(String id) {
+        for (int i = 0; i < students.length; i++) {
+            if (students[i].getId().equals(id)) {
+                return students[i];
+            }
+
+        }
+        throw new IllegalArgumentException ("Fehler");
+    }
+    public static void iFail() {
     }
 }
